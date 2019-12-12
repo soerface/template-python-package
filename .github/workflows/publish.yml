@@ -6,22 +6,40 @@ on:
       - v*
 
 jobs:
-  publish:
+  dist:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v1
+      - name: Setup python
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.8
+          architecture: x64
+      - name: Install wheel package
+        run: pip install wheel
+      - name: Build wheel
+        run: python setup.py bdist_wheel
+      - name: Upload wheel artifact
+        uses: actions/upload-artifact@v1
+        with:
+          name: wheel
+          path: dist
 
+  publish:
+    needs: dist
     runs-on: ubuntu-18.04
 
     steps:
-    - uses: actions/checkout@v1
-    - name: Setup python
-      uses: actions/setup-python@v1
-      with:
-        python-version: 3.8
-        architecture: x64
-    - name: Install dependencies
-      run: pip install -r requirements.txt
-    - name: Install stylechecker
-      run: pip install flake8
-    - name: Run stylecheck
-      run: flake8 .
-    - name: Run tests
-      run: GITHUB_REPOSITORY="" nosetests --with-doctest .
+      - name: Setup python
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.8
+          architecture: x64
+      - name: Download wheel
+        uses: actions/download-artifact@v1
+        with:
+          name: wheel
+      - name: Install twine
+        run: pip install twine
+      - name: Upload to PyPI
+        run: twine upload wheel/*.whl
