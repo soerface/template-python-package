@@ -36,7 +36,7 @@ jobs:
         uses: actions/setup-python@v1
         with:
           python-version: 3.8
-          architecture: x86
+          architecture: x64
       - name: Build wheel
         run: python setup.py bdist_wheel
       - name: Upload wheel artifact
@@ -54,7 +54,7 @@ jobs:
         uses: actions/setup-python@v1
         with:
           python-version: 3.8
-          architecture: x86
+          architecture: x64
       - name: Download wheel
         uses: actions/download-artifact@v1
         with:
