@@ -8,6 +8,11 @@ your Python package.
 - Click on [Use this template]](https://github.com/soerface/template-flask-bootstrap/generate)
 - TODO
 
+Set the following environment variables in your repository settings:
+
+- TWINE_USERNAME
+- TWINE_PASSWORD
+
 Below is a README.md template for your project
 
 ---
