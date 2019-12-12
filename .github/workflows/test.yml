@@ -21,8 +21,8 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
           architecture: x64
-      - name: Install stylechecker
-        run: pip install flake8
+      - name: Install stylechecker, nosetests, coverage
+        run: pip install flake8 nose coverage
       - name: Run stylecheck
         run: flake8 .
       - name: Run tests
@@ -37,6 +37,8 @@ jobs:
         with:
           python-version: 3.8
           architecture: x64
+      - name: Install wheel package
+        run: pip install wheel
       - name: Build wheel
         run: python setup.py bdist_wheel
       - name: Upload wheel artifact
