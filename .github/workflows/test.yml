@@ -47,6 +47,7 @@ jobs:
 
   publish:
     needs: dist
+    runs-on: ubuntu-18.04
 
     steps:
       - name: Setup python
