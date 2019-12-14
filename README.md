@@ -23,7 +23,7 @@ Below is a README.md template for your project.
 TODO: CHANGE BADGE URLS AFTER FORKING
 
 [![Documentation Status](https://readthedocs.org/projects/hello-gh-actions/badge/?version=latest)](https://hello-gh-actions.readthedocs.io/en/latest/?badge=latest)
-![Tests Status](https://github.com/soerface/template-python-package/workflows/Tests/badge.svg)
+[![Tests Status](https://github.com/soerface/template-python-package/workflows/Tests/badge.svg)](https://github.com/soerface/template-python-package/actions?query=workflow%3ATests)
 
 - Documentation: https://hello-gh-actions.readthedocs.io/en/latest/
 - PyPI: https://pypi.org/project/hello_gh_actions
