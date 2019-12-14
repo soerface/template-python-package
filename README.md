@@ -20,7 +20,10 @@ Below is a README.md template for your project.
 
 # Hello GitHub Actions!
 
+TODO: CHANGE BADGE URLS AFTER FORKING
+
 [![Documentation Status](https://readthedocs.org/projects/hello-gh-actions/badge/?version=latest)](https://hello-gh-actions.readthedocs.io/en/latest/?badge=latest)
+![Tests Status](./workflows/Tests/badge.svg)
 
 - Documentation: https://hello-gh-actions.readthedocs.io/en/latest/
 - PyPI: https://pypi.org/project/hello_gh_actions
