@@ -1,0 +1,68 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  test:
+
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        python-version: ['3.6', '3.7', '3.8']
+        os: ['ubuntu-18.04']
+    
+    steps:
+      - uses: actions/checkout@v1
+      - name: Setup python
+        uses: actions/setup-python@v1
+        with:
+          python-version: ${{ matrix.python-version }}
+          architecture: x64
+      - name: Install stylechecker, nosetests, coverage
+        run: pip install flake8 nose coverage
+      - name: Run stylecheck
+        run: flake8 .
+      - name: Run tests
+        run: python setup.py nosetests --with-doctest --with-coverage --cover-html --cover-html-dir=coverage --cover-package=hello_gh_actions --cover-branches --cover-erase
+
+    dist:
+      runs-on: ubuntu-18.04
+      steps:
+        - uses: actions/checkout@v1
+        - name: Setup python
+          uses: actions/setup-python@v1
+          with:
+            python-version: 3.8
+            architecture: x64
+        - name: Install wheel package
+          run: pip install wheel
+        - name: Build wheel
+          run: python setup.py bdist_wheel
+        - name: Upload wheel artifact
+          uses: actions/upload-artifact@v1
+          with:
+            name: wheel
+            path: dist
+
+    publish:
+      needs: [dist, test]
+      runs-on: ubuntu-18.04
+      if: startsWith(github.ref, 'v')
+
+      steps:
+        - name: Setup python
+          uses: actions/setup-python@v1
+          with:
+            python-version: 3.8
+            architecture: x64
+        - name: Download wheel
+          uses: actions/download-artifact@v1
+          with:
+            name: wheel
+        - name: Install twine
+          run: pip install twine
+        - name: Upload to PyPI
+          run: twine upload wheel/*.whl
