@@ -1,0 +1,13 @@
+name: Fork / Use template
+
+on:
+  fork:
+
+jobs:
+
+  dbg:
+    runs-on: ubuntu-18.04
+
+    steps:
+      - name: Does it also run when using template?
+        run: echo template_repository ${{ github.event.template_repository }} is_template ${{ github.event.is_template }}

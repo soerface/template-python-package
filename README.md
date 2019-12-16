@@ -16,7 +16,7 @@ your Python package.
 
 Go to your repositories "Settings -> Secrets" page and add the `PYPI_API_KEY` secret with the key you received from PyPI.
 
-Below is a README template for your project, so remove everything above this line.
+Below is a README template for your project, so remove everything above the following line.
 
 ---
 
