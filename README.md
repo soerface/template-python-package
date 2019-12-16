@@ -26,7 +26,7 @@ TODO: CHANGE BADGE URLS AFTER FORKING
 [![Documentation Status](https://readthedocs.org/projects/hello-gh-actions/badge/?version=latest)](https://hello-gh-actions.readthedocs.io/en/latest/?badge=latest)
 [![Tests Status](https://github.com/soerface/template-python-package/workflows/CI/badge.svg)](https://github.com/soerface/template-python-package/actions?query=workflow%3ACI)
 
-- Documentation: https://hello-gh-actions.readthedocs.io/en/latest/
+- Documentation: https://hello-gh-actions.readthedocs.io
 - PyPI: https://pypi.org/project/hello-gh-actions
 
 ## Getting started
