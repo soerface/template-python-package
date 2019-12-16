@@ -12,6 +12,7 @@ jobs:
 
   dbg:
     runs-on: ubuntu-18.04
+
     steps:
       - name: ref
         run: echo ${{ github.ref }}
@@ -23,8 +24,9 @@ jobs:
         run: echo ${{ github.event.ref }}
 
   test:
-
     runs-on: ${{ matrix.os }}
+    if: github.event_name == 'push'
+
     strategy:
       matrix:
         python-version: ['3.6', '3.7', '3.8']
@@ -46,6 +48,8 @@ jobs:
 
   dist:
     runs-on: ubuntu-18.04
+    if: github.event_name == 'push'
+
     steps:
       - uses: actions/checkout@v1
       - name: Setup python
@@ -66,7 +70,7 @@ jobs:
   publish:
     needs: [dist, test]
     runs-on: ubuntu-18.04
-    if: github.event_name == 'created' && startsWith(github.event.ref, 'v')
+    if: github.event_name == 'create' && startsWith(github.event.ref, 'v')
 
     steps:
       - name: Setup python
