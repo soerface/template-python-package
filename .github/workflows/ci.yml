@@ -39,7 +39,7 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
           architecture: x64
-      - name: Install stylechecker, nosetests, coverage
+      - name: Install nosetests
         run: pip install nose # for code coverage: coverage
       - name: Run tests
         run: python setup.py nosetests --with-doctest
@@ -59,12 +59,12 @@ jobs:
           architecture: x64
       - name: Install wheel package
         run: pip install wheel
-      - name: Build wheel
-        run: python setup.py bdist_wheel
-      - name: Upload wheel artifact
+      - name: Build wheel and source distribution
+        run: python setup.py sdist bdist_wheel
+      - name: Upload dist artifact
         uses: actions/upload-artifact@v1
         with:
-          name: wheel
+          name: dist
           path: dist
 
   publish:
@@ -78,14 +78,14 @@ jobs:
         with:
           python-version: 3.8
           architecture: x64
-      - name: Download wheel
+      - name: Download dist
         uses: actions/download-artifact@v1
         with:
-          name: wheel
+          name: dist
       - name: Install twine
         run: pip install twine
       - name: Upload to PyPI
         env:
           TWINE_USERNAME: '__token__'
           TWINE_PASSWORD: ${{ secrets.PYPI_API_KEY }}
-        run: twine upload wheel/*.whl
+        run: twine upload dist/*
