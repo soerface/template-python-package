@@ -9,6 +9,15 @@ on:
       - v*
 
 jobs:
+
+  dbg:
+    runs-on: ubuntu-18.04
+    steps:
+      - name: ref
+        run: echo ${{ github.ref }}
+      - name: event
+        run: echo ${{ github.event }}
+
   test:
 
     runs-on: ${{ matrix.os }}
@@ -53,7 +62,7 @@ jobs:
   publish:
     needs: [dist, test]
     runs-on: ubuntu-18.04
-    if: startsWith(github.ref, 'v')
+    if: github.event == 'created' && startsWith(github.ref, 'v')
 
     steps:
       - name: Setup python
