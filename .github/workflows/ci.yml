@@ -9,19 +9,6 @@ on:
 
 jobs:
 
-  dbg:
-    runs-on: ubuntu-18.04
-
-    steps:
-      - name: ref
-        run: echo ${{ github.ref }}
-      - name: github.event_name
-        run: echo ${{ github.event_name }}
-      - name: github.ref
-        run: echo ${{ github.ref }}
-      - name: github.event.ref
-        run: echo ${{ github.event.ref }}
-
   test:
     runs-on: ${{ matrix.os }}
     if: github.event_name == 'push'
