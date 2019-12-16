@@ -11,6 +11,6 @@ setup(
     project_urls={
         'Source Code': github_url,
         'Bug Tracker': f'{github_url}/issues',
-        'Documentation': 'https://readthedocs.org/projects/hello-gh-actions/',
+        'Documentation': 'https://hello-gh-actions.readthedocs.io',
     },
 )
