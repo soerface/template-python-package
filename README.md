@@ -8,11 +8,9 @@ your Python package.
 - Click on [Use this template](https://github.com/soerface/template-flask-bootstrap/generate)
 - Customize
 - Create an account on [readthedocs](https://readthedocs.org/) and connect this repository
+- Create an account on [PyPI](https://pypi.org) and an API-Key for your project
 
-Set the following environment variables in your repository settings to enable publishing on PyPI:
-
-- TWINE_USERNAME
-- TWINE_PASSWORD
+Go to your repository Settings -> Secrets and add the `PYPI_API_KEY` secret with the key you received from PyPI.
 
 Below is a README.md template for your project.
 

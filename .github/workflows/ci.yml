@@ -71,4 +71,7 @@ jobs:
       - name: Install twine
         run: pip install twine
       - name: Upload to PyPI
+        env:
+          TWINE_USERNAME: '__token__'
+          TWINE_PASSWORD: ${{ secrets.PYPI_API_KEY }}
         run: twine upload wheel/*.whl
