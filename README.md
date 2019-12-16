@@ -7,15 +7,16 @@ your Python package.
 
 - Click on [Use this template](https://github.com/soerface/template-flask-bootstrap/generate)
 - Customize a couple files:
-  - Rename `hello_gh_actions` to your desired package name
-  - Replace project details in `setup.cfg`
-  - Add your name in `LICENSE`
+  - Rename directory `./hello_gh_actions/` to your desired package name
+    - Also change `./hello_gh_actions/__init__.py` accordingly
+  - Replace project details in `./setup.cfg`
+  - Add your name in `./LICENSE`
 - Create an account on [readthedocs](https://readthedocs.org/) and connect this repository
 - Create an account on [PyPI](https://pypi.org) and generate an API-Key for your project
 
 Go to your repositories "Settings -> Secrets" page and add the `PYPI_API_KEY` secret with the key you received from PyPI.
 
-Below is a README.md template for your project, so remove everything above this line.
+Below is a README template for your project, so remove everything above this line.
 
 ---
 

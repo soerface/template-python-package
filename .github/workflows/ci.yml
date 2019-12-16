@@ -9,6 +9,21 @@ on:
 
 jobs:
 
+  stylecheck:
+    runs-on: ubuntu-18.04
+
+    steps:
+      - uses: actions/checkout@v1
+      - name: Setup python
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.8
+          architecture: x64
+      - name: Install stylechecker
+        run: pip install flake8
+      - name: Run stylecheck
+        run: flake8 .
+
   test:
     runs-on: ${{ matrix.os }}
 
@@ -25,11 +40,11 @@ jobs:
           python-version: ${{ matrix.python-version }}
           architecture: x64
       - name: Install stylechecker, nosetests, coverage
-        run: pip install flake8 nose coverage
-      - name: Run stylecheck
-        run: flake8 .
+        run: pip install nose # for code coverage: coverage
       - name: Run tests
-        run: python setup.py nosetests --with-doctest --with-coverage --cover-html --cover-html-dir=coverage --cover-package=hello_gh_actions --cover-branches --cover-erase
+        run: python setup.py nosetests --with-doctest
+        # want to run code coverage? Uncomment and change cover-min-percentage and cover-package
+        # run: python setup.py nosetests --with-doctest --with-coverage --cover-html --cover-html-dir=coverage --cover-package=hello_gh_actions --cover-branches --cover-erase --cover-min-percentage=80
 
   dist:
     runs-on: ubuntu-18.04
