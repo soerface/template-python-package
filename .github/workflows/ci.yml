@@ -6,7 +6,6 @@ on:
       - master
   create:
     tags:
-      - v*
 
 jobs:
 
