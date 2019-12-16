@@ -15,8 +15,16 @@ jobs:
     steps:
       - name: ref
         run: echo ${{ github.ref }}
-      - name: event
-        run: echo ${{ github.event.ref_type }} ${{ github.event.ref }} ${{ github.event.master_branch }} ${{ github.event.description }}
+      - name: event.name
+        run: echo ${{ event.name }}
+      - name: event.ref_type
+        run: echo ${{ github.event.ref_type }}
+      - name: event.ref
+        run: echo ${{ github.event.ref }}
+      - name: event.master_branch
+        run: echo ${{ github.event.master_branch }}
+      - name: event.description
+        run: echo ${{ github.event.description }}
 
   test:
 
