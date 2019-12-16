@@ -70,7 +70,7 @@ jobs:
   publish:
     needs: [dist, test]
     runs-on: ubuntu-18.04
-    if: github.event_name == 'create' && startsWith(github.event.ref, 'v')
+    if: github.event_name == "create" && startsWith(github.event.ref, 'v')
 
     steps:
       - name: Setup python
