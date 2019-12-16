@@ -16,7 +16,7 @@ jobs:
       - name: ref
         run: echo ${{ github.ref }}
       - name: event.name
-        run: echo ${{ event.name }}
+        run: echo ${{ github.event.name }}
       - name: event.ref_type
         run: echo ${{ github.event.ref_type }}
       - name: event.ref
