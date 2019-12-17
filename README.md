@@ -6,17 +6,17 @@ your Python package.
 ## Using it
 
 - Click on [Use this template](https://github.com/soerface/template-flask-bootstrap/generate)
-- Customize a couple files:
-  - Rename directory `./hello_gh_actions/` to your desired package name
-    - Also change `./hello_gh_actions/__init__.py` accordingly
-  - Replace project details in `./setup.cfg`
-  - Add your name in `./LICENSE`
+- A workflow "Use template" will start automatically. It will rename "hello_gh_actions" to whatever you have chosen for your repository name
+- After one or two minutes, a new commit will appear on your master branch. Checkout the diff to see if everything is alright!
+
+To be able to publish documentation and package, follow these steps:
+
 - Create an account on [readthedocs](https://readthedocs.org/) and connect this repository
 - Create an account on [PyPI](https://pypi.org) and generate an API-Key for your project
 
 Go to your repositories "Settings -> Secrets" page and add the `PYPI_API_KEY` secret with the key you received from PyPI.
 
-Below is a README template for your project, so remove everything above the following line.
+Below is a README example. It will be used for your repository.
 
 ---
 
