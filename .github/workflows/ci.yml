@@ -44,7 +44,7 @@ jobs:
       - name: Run tests
         run: python setup.py nosetests --with-doctest
         # want to run code coverage? Uncomment and change cover-min-percentage and cover-package
-        # run: python setup.py nosetests --with-doctest --with-coverage --cover-html --cover-html-dir=coverage --cover-package=hello_gh_actions --cover-branches --cover-erase --cover-min-percentage=80
+        # run: python setup.py nosetests --with-doctest --with-coverage --cover-html --cover-html-dir=coverage --cover-package=YOUR_PACKAGE_NAME --cover-branches --cover-erase --cover-min-percentage=80
 
   dist:
     runs-on: ubuntu-18.04
