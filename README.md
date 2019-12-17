@@ -1,4 +1,4 @@
-# Template
+# Template for Python packages
 
 This is a template repository for building Python packages. It allows you to quickstart
 your Python package.
