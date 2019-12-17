@@ -26,11 +26,11 @@ jobs:
           sed -i "s/soerface@flipdot.org/$(git log --format='%ae' HEAD^!)/g" setup.cfg
           git mv hello_gh_actions $PACKAGE_NAME
       - name: Commit the changes
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git config --global user.email "$GITHUB_ACTOR@users.noreply.github.com"
           git config --global user.name "$GITHUB_ACTOR"
-          export REMOTE=$(git config remote.origin.url)
           git commit -m "Initialized the repository"
-          git push -q "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY.git" master
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
