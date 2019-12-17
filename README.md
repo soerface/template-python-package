@@ -20,9 +20,7 @@ Below is a README template for your project, so remove everything above the foll
 
 ---
 
-# Hello GitHub Actions!
-
-TODO: CHANGE BADGE URLS AFTER FORKING
+# Hello GitHub Actions
 
 [![Documentation Status](https://readthedocs.org/projects/hello-gh-actions/badge/?version=latest)](https://hello-gh-actions.readthedocs.io/en/latest/?badge=latest)
 [![Tests Status](https://github.com/soerface/template-python-package/workflows/CI/badge.svg)](https://github.com/soerface/template-python-package/actions?query=workflow%3ACI)
