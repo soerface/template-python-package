@@ -5,7 +5,7 @@ your Python package.
 
 ## Using it
 
-- Click on [Use this template](https://github.com/soerface/template-flask-bootstrap/generate)
+- Click on [Use this template](https://github.com/soerface/template-python-package/generate)
 - A workflow "Use template" will start automatically. It will rename "hello_gh_actions" to whatever you have chosen for your repository name
 - After one or two minutes, a new commit will appear on your master branch. Checkout the diff to see if everything is alright!
 
