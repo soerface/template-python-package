@@ -16,5 +16,5 @@ def fizzbuzz(n: int) -> str:
     if type(n) != int:
         raise TypeError(f'int expected as input, got {type(n)}')
     if n < 0:
-        raise ValueError(f'Positive input expected')
+        raise ValueError('Positive input expected')
     return f"{'fizz' if n % 5 == 0 else ''}{'buzz' if n % 7 == 0 else ''}"
